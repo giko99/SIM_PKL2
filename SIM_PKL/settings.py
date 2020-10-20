@@ -15,7 +15,9 @@ SECRET_KEY = 'y&ma&g0z0r603*p2qz9^hotn**h60eey1w2kwb)glz#sdtt8&)'
 # DEBUG = True
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://lab-sos.herokuapp.com',
+'localhost',
+'127.0.0.1']
 
 
 # Application definition
@@ -127,6 +129,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# Activate Django-Heroku.
+django_heroku.settings(locals())
+
 STATICFILES_DIRS =[
     BASE_DIR + "/static",
     'var/www/static',
@@ -147,7 +153,3 @@ MESSAGE_TAGS ={
     messages.SUCCESS : 'alert-success',
     messages.WARNING : 'alert-warning',
 }
-
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-# Activate Django-Heroku.
-django_heroku.settings(locals())
